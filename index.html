@@ -11,15 +11,23 @@
     <script src="/build/models/SportNote.js" defer></script>
     <script src="/build/models/toDoNote.js" defer></script>
     <script src="/build/models/MeetingNote.js" defer></script>
+    <script src="/build/functions/editMode.js" defer></script>
     <script src="/build/functions/displayNotes.js" defer></script>
+    <script src="/build/functions/deleteById.js" defer></script>
     <script src="/build/main.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="head">
-      <h1>Notes</h1>
-      <!-- <button id="editBtn">Edit State</button> -->
+      <div class="title">
+        <span>Notes</span>
+      </div>
+      <button id="editBtn" onclick="toggleEditMode(this)">
+        turn on edit mode
+      </button>
     </header>
-    <main id="notes"></main>
+    <main>
+      <div id="notes" class="list-box"></div>
+    </main>
   </body>
 </html>

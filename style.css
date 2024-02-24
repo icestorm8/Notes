@@ -1,31 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .head {
   background-image: url("https://i.pinimg.com/736x/67/25/9d/67259df8e77f04e05698cc8df044268a.jpg");
-  width: 100%;
-  height: 20vh;
-
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 10px;
+  box-shadow: -5px 8px 20px 6px rgba(23, 23, 23, 0.7);
   border-bottom: darkblue 10px solid;
+  margin: 0;
+  justify-content: center;
+  display: flex;
 }
 
-.head > h1 {
+.head > .title {
+  background: rgb(54, 35, 35);
+  color: aliceblue;
+  padding: 10px;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding: 2%;
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
-.head > button {
-  width: 20vh;
-  aspect-ratio: 3/1;
-  background-color: #fbf9f1;
-  border-radius: 1vh;
-  border: 1px solid #92c7cf;
-  position: relative;
-  top: -2vh;
+.list-box {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 80%;
+  margin-top: 3rem;
+}
+.box-note {
+  padding: 1.75rem;
+  background: aliceblue;
+  box-shadow: 0 0 11px 0 rgba(23, 23, 23, 0.7);
+  border-radius: 15px;
 }
 
-.head > button:hover {
-  background-color: #e5e1da;
-  border: 3px solid #92c7cf;
+.note {
 }
+.note-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 11px rgba(23, 23, 23, 0.5);
+}
+
+.note-body {
+  margin-top: 3.5rem;
+}
+
+
+.note-button{
+  border-radius: 7px;
+  
+}
+.MeetingNote {
+  background: linear-gradient(
+    to bottom right,
+    rgb(198, 205, 223),
+    rgb(237, 241, 255)
+  );
+}
+.toDoNote {
+  background: linear-gradient(
+    to bottom right,
+    rgb(222, 239, 219),
+    rgb(237, 241, 255)
+  );
+}
+.SportNote {
+  background: linear-gradient(
+    to bottom right,
+    rgb(240, 215, 231),
+    rgb(237, 241, 255)
+  );
+}
+/* .MeetingNote > *{
+  color: aliceblue
+  ;
+} */
