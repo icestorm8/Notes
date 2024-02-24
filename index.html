@@ -4,16 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notes</title>
+    <script src="/build/interfaces/sportAndLeisure.js" defer></script>
+    <script src="/build/interfaces/toDo.js" defer></script>
+    <script src="/build/interfaces/meetings.js" defer></script>
+    <script src="/build/models/Note.js" defer></script>
+    <script src="/build/models/SportNote.js" defer></script>
+    <script src="/build/models/toDoNote.js" defer></script>
+    <script src="/build/models/MeetingNote.js" defer></script>
+    <script src="/build/notes.js" defer></script>
+    <script src="/build/functions/displayNotes.js" defer></script>
     <script src="/build/main.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
+    <header class="head">
       <h1>Notes</h1>
-      <img
-        src="https://i.pinimg.com/736x/67/25/9d/67259df8e77f04e05698cc8df044268a.jpg"
-        alt="header image"
-      />
+      <button id="editBtn">Edit State</button>
     </header>
     <main id="notes"></main>
   </body>

@@ -10,6 +10,8 @@ class MeetingNote extends Note implements meetings {
     super(creationDate, title, content, imageSrc);
   }
   noteAlert(): void {
-    throw new Error("Method not implemented.");
+    alert(
+      `creation date: ${this.creationDate}\ntitle: ${this.title}\ncontent: ${this.content}\nplace: ${this.place}\nhour: ${this.meetingHour}\n`
+    );
   }
 }
