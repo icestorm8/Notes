@@ -1,10 +1,9 @@
 function toggleEditMode(element) {
-  var buttonText = element.innerText;
-  if (buttonText == "turn on edit mode") {
-    element.innerText = "turn off edit mode";
+  if (element.value == "on") {
+    element.value = "off";
     displayNotes(true);
   } else {
-    element.innerText = "turn on edit mode";
+    element.value = "on";
     displayNotes(false);
   }
 }

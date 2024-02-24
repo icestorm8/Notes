@@ -6,26 +6,17 @@ function checkAlerts(notes) {
 var notesDiv = document.getElementById("notes");
 function displayNotes(editMode) {
     notesDiv.innerHTML = ""; // empty
-    if (editMode) {
-        notes.map(function (note, index) {
-            notesDiv.innerHTML += "\n        <div class=\"box-note ".concat(note.constructor.name, "\">\n          <div class=\"note\">\n  \n            <div class=\"note-title\">\n              <span>").concat(note.title, "</span>\n            </div>\n            <div class=\"note-body\">\n              <span>").concat(note.content, "</span>\n            </div>\n            <button id=\"").concat(index, "\"> alert details </button>\n            \n            <button class=\"delete\" onclick=\"(() => deleteById(").concat(note.id, "))()\">X</button>\n            </div>\n        </div>\n      ");
-            setTimeout(function () {
-                document.getElementById("".concat(index)).onclick = function () {
-                    note.noteAlert();
-                };
-            }, 200);
-            console.log(note);
-        });
+    if (notes.length == 0) {
+        notesDiv.innerHTML += "<h3>0 notes where found...</h3>";
+        return;
     }
-    else {
-        notes.map(function (note, index) {
-            notesDiv.innerHTML += "\n        <div class=\"box-note ".concat(note.constructor.name, "\">\n          <div class=\"note\">\n  \n            <div class=\"note-title\">\n              <span>").concat(note.title, "</span>\n            </div>\n            <div class=\"note-body\">\n              <span>").concat(note.content, "</span>\n            </div>\n            <button id=\"").concat(index, "\"> alert details </button>\n            \n          </div>\n        </div>\n      ");
-            setTimeout(function () {
-                document.getElementById("".concat(index)).onclick = function () {
-                    note.noteAlert();
-                };
-            }, 200);
-            console.log(note);
-        });
-    }
+    notes.map(function (note, index) {
+        notesDiv.innerHTML += "\n        <div class=\"box-note ".concat(note.constructor.name, "\" >\n          <div class=\"note\">\n\n          <!-- head -->\n            <div class=\"box-head\">\n              <div class=\"note-title\">\n                <span>").concat(note.title, "</span>\n              </div>\n              <i style=\"display:").concat(editMode ? 'block' : 'none', "\" onclick=\"(() => deleteById(").concat(note.id, "))()\" class=\"fa-solid fa-xmark\"></i>\n            </div>\n\n            <!-- body -->\n            <div class=\"note-body\">\n              <span>").concat(note.content, "</span>\n              <button id=\"").concat(index, "\"> alert details </button>\n            </div>\n            \n          </div>\n        </div>\n      ");
+        setTimeout(function () {
+            document.getElementById("".concat(index)).onclick = function () {
+                note.noteAlert();
+            };
+        }, 200);
+        console.log(note);
+    });
 }

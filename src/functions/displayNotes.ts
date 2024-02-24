@@ -10,45 +10,28 @@ var notesDiv: HTMLDivElement = document.getElementById(
 
 function displayNotes(editMode: boolean): void {
   notesDiv.innerHTML = ""; // empty
-  if (editMode) {
+  if (notes.length == 0) {
+    notesDiv.innerHTML += "<h3>0 notes where found...</h3>";
+    return;
+  }
     notes.map((note, index) => {
       notesDiv.innerHTML += `
-        <div class="box-note ${note.constructor.name}">
+        <div class="box-note ${note.constructor.name}" >
           <div class="note">
-  
-            <div class="note-title">
-              <span>${note.title}</span>
-            </div>
-            <div class="note-body">
-              <span>${note.content}</span>
-            </div>
-            <button id="${index}"> alert details </button>
-            
-            <button class="delete" onclick="(() => deleteById(${note.id}))()">X</button>
-            </div>
-        </div>
-      `;
 
-      setTimeout(function () {
-        document.getElementById(`${index}`).onclick = function () {
-          note.noteAlert();
-        };
-      }, 200);
-      console.log(note);
-    });
-  } else {
-    notes.map((note, index) => {
-      notesDiv.innerHTML += `
-        <div class="box-note ${note.constructor.name}">
-          <div class="note">
-  
-            <div class="note-title">
-              <span>${note.title}</span>
+          <!-- head -->
+            <div class="box-head">
+              <div class="note-title">
+                <span>${note.title}</span>
+              </div>
+              <i style="display:${editMode?'block':'none'}" onclick="(() => deleteById(${note.id}))()" class="fa-solid fa-xmark"></i>
             </div>
+
+            <!-- body -->
             <div class="note-body">
               <span>${note.content}</span>
+              <button id="${index}"> alert details </button>
             </div>
-            <button id="${index}"> alert details </button>
             
           </div>
         </div>
@@ -61,5 +44,4 @@ function displayNotes(editMode: boolean): void {
       }, 200);
       console.log(note);
     });
-  }
 }
