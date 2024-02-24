@@ -27,5 +27,8 @@ var SportNote = /** @class */ (function (_super) {
     SportNote.prototype.noteAlert = function () {
         alert("place: ".concat(this.place, "\ntime: ").concat(this.hourOfEvent, "\nequipment:").concat(this.neededEquipment, "\n"));
     };
+    SportNote.prototype.toString = function () {
+        return "place: ".concat(this.place, "\ntime: ").concat(this.hourOfEvent, "\nequipment:").concat(this.neededEquipment, "\n");
+    };
     return SportNote;
 }(Note));

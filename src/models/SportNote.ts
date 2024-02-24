@@ -18,4 +18,8 @@ class SportNote extends Note implements sportAndLeisure {
       `place: ${this.place}\ntime: ${this.hourOfEvent}\nequipment:${this.neededEquipment}\n`
     );
   }
+
+  toString(): string {
+    return `place: ${this.place}\ntime: ${this.hourOfEvent}\nequipment:${this.neededEquipment}\n`;
+  }
 }

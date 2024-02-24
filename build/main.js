@@ -4,5 +4,5 @@ var note3 = new SportNote("2.2.24", "basketball game", "basket ball game at noon
 var notes = [];
 notes.push(note1, note2, note3);
 console.log(notes);
-alert(typeof notes);
-checkAlerts(notes);
+// checkAlerts(notes);
+displayNotes(notes);

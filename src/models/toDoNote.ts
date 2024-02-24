@@ -11,4 +11,8 @@ class toDoNote extends Note implements toDo {
   noteAlert(): void {
     alert(`creation date: ${this.creationDate}\ndueDate: ${this.dueDate}`);
   }
+
+  toString(): string {
+    return `creation date: ${this.creationDate}\ndueDate: ${this.dueDate}`;
+  }
 }

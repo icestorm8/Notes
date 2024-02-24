@@ -14,4 +14,8 @@ class MeetingNote extends Note implements meetings {
       `creation date: ${this.creationDate}\ntitle: ${this.title}\ncontent: ${this.content}\nplace: ${this.place}\nhour: ${this.meetingHour}\n`
     );
   }
+
+  toString(): string {
+    return `creation date: ${this.creationDate}\ntitle: ${this.title}\ncontent: ${this.content}\nplace: ${this.place}\nhour: ${this.meetingHour}\n`;
+  }
 }

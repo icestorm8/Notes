@@ -24,5 +24,8 @@ var MeetingNote = /** @class */ (function (_super) {
     MeetingNote.prototype.noteAlert = function () {
         alert("creation date: ".concat(this.creationDate, "\ntitle: ").concat(this.title, "\ncontent: ").concat(this.content, "\nplace: ").concat(this.place, "\nhour: ").concat(this.meetingHour, "\n"));
     };
+    MeetingNote.prototype.toString = function () {
+        return "creation date: ".concat(this.creationDate, "\ntitle: ").concat(this.title, "\ncontent: ").concat(this.content, "\nplace: ").concat(this.place, "\nhour: ").concat(this.meetingHour, "\n");
+    };
     return MeetingNote;
 }(Note));

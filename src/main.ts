@@ -30,4 +30,5 @@ notes.push(note1, note2, note3);
 
 console.log(notes);
 
-checkAlerts(notes);
+// checkAlerts(notes);
+displayNotes(notes);

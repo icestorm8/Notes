@@ -23,5 +23,8 @@ var toDoNote = /** @class */ (function (_super) {
     toDoNote.prototype.noteAlert = function () {
         alert("creation date: ".concat(this.creationDate, "\ndueDate: ").concat(this.dueDate));
     };
+    toDoNote.prototype.toString = function () {
+        return "creation date: ".concat(this.creationDate, "\ndueDate: ").concat(this.dueDate);
+    };
     return toDoNote;
 }(Note));
