@@ -16,6 +16,8 @@ var __extends = (this && this.__extends) || (function () {
 var MeetingNote = /** @class */ (function (_super) {
     __extends(MeetingNote, _super);
     function MeetingNote(creationDate, title, content, imageSrc, place, meetingHour) {
+        if (place === void 0) { place = "unknown"; }
+        if (meetingHour === void 0) { meetingHour = "unkown"; }
         var _this = _super.call(this, creationDate, title, content, imageSrc) || this;
         _this.place = place;
         _this.meetingHour = meetingHour;

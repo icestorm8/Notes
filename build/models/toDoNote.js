@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 var toDoNote = /** @class */ (function (_super) {
     __extends(toDoNote, _super);
     function toDoNote(creationDate, title, content, imageSrc, dueDate) {
+        if (dueDate === void 0) { dueDate = "unknown"; }
         var _this = _super.call(this, creationDate, title, content, imageSrc) || this;
         _this.dueDate = dueDate;
         return _this;

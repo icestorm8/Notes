@@ -17,6 +17,10 @@ var SportNote = /** @class */ (function (_super) {
     __extends(SportNote, _super);
     //   can basically implement meetings and sportAndLeisure here
     function SportNote(creationDate, title, content, imageSrc, place, dateOfEvent, hourOfEvent, neededEquipment) {
+        if (place === void 0) { place = "unknown"; }
+        if (dateOfEvent === void 0) { dateOfEvent = "unkown"; }
+        if (hourOfEvent === void 0) { hourOfEvent = "unknown"; }
+        if (neededEquipment === void 0) { neededEquipment = []; }
         var _this = _super.call(this, creationDate, title, content, imageSrc) || this;
         _this.place = place;
         _this.dateOfEvent = dateOfEvent;
