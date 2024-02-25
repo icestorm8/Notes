@@ -5,10 +5,10 @@ class SportNote extends Note implements sportAndLeisure {
     title: string,
     content: string,
     imageSrc: string,
-    public place: string,
-    public dateOfEvent: string,
-    public hourOfEvent: string,
-    public neededEquipment: string[]
+    public place: string = "unknown",
+    public dateOfEvent: string = "unkown",
+    public hourOfEvent: string = "unknown",
+    public neededEquipment: string[] = []
   ) {
     super(creationDate, title, content, imageSrc);
   }

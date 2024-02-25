@@ -4,8 +4,8 @@ class MeetingNote extends Note implements meetings {
     title: string,
     content: string,
     imageSrc: string,
-    public place: string,
-    public meetingHour: string
+    public place: string = "unknown",
+    public meetingHour: string = "unkown"
   ) {
     super(creationDate, title, content, imageSrc);
   }

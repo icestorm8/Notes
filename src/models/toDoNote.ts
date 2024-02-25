@@ -4,7 +4,7 @@ class toDoNote extends Note implements toDo {
     title: string,
     content: string,
     imageSrc: string,
-    public dueDate: string
+    public dueDate: string = "unknown"
   ) {
     super(creationDate, title, content, imageSrc);
   }
