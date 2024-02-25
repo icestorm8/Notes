@@ -12,7 +12,7 @@ function getImgData(): void {
     fileReader.readAsDataURL(files);
     fileReader.addEventListener("load", function () {
       imgPreview.style.display = "block";
-      imgPreview.innerHTML = '<img src="' + this.result + '" />';
+      imgPreview.innerHTML = '<img width="300" src="' + this.result + '" />';
     });
   }
 }

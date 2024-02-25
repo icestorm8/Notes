@@ -6,6 +6,10 @@ function openNoteDisplay(noteId: number) {
       "modal-display-note"
     ) as HTMLDivElement;
 
+    var displayedNote: HTMLDivElement = document.getElementById(
+      "display-note"
+    ) as HTMLDivElement;
+
     var titleSpan: HTMLSpanElement = document.getElementById(
       "title"
     ) as HTMLSpanElement;
@@ -18,15 +22,22 @@ function openNoteDisplay(noteId: number) {
       "creation-date-display"
     ) as HTMLSpanElement;
 
-    var imageDisplay: HTMLImageElement = document.getElementById(
+    let imageDisplay: HTMLImageElement = document.getElementById(
       "image"
     ) as HTMLImageElement;
+
+    displayedNote.className = `modal ${notes[index].constructor.name}`;
 
     // DISPLAY BASIC SHARED NOTE PROPERTIES
     creationDateSpan.innerHTML = notes[index].creationDate;
     titleSpan.innerHTML = notes[index].title;
 
+    // hide broken image icon if source is empty or bad
+    imageDisplay.style.display = "block";
     imageDisplay.src = notes[index].imageSrc; // not working for now
+    imageDisplay.onerror = () => {
+      imageDisplay.style.display = "none";
+    };
 
     var additinalDataDiv: HTMLDivElement = document.getElementById(
       "additional-data-display"
@@ -40,8 +51,8 @@ function openNoteDisplay(noteId: number) {
         note = notes[index] as MeetingNote;
         contentBox.innerHTML = note.content;
         additinalDataDiv.innerHTML += `
-          <span>place: ${note.place}</span>
-          <span>time: ${note.meetingHour}</span>
+          <span><span class="property-title">place</span> ${note.place}</span>
+          <span><span class="property-title">time</span> ${note.meetingHour}</span>
         `;
         break;
       case "toDoNote":
@@ -52,17 +63,19 @@ function openNoteDisplay(noteId: number) {
           // for now - doesn't save checked status
           contentBox.innerHTML += `<input type="checkbox">${line}<br>`;
         });
-        contentBox.innerHTML += `<span>Due to: ${note.dueDate}</span>`;
+        additinalDataDiv.innerHTML += `<span><span class="property-title">Due to</span> ${note.dueDate}</span>`;
         break;
       case "SportNote":
         note = notes[index] as SportNote;
         contentBox.innerHTML = note.content;
         additinalDataDiv.innerHTML += `
-          <span>place: ${note.place}</span>
-          <span>time: ${note.hourOfEvent}</span>
-          <span>date of event: ${note.dateOfEvent}</span>
-          <span> needed equipment: </span>
-          <div id="equipment-list"></div>
+          <span><span class="property-title">place</span>${note.place}</span>
+          <span><span class="property-title">time</span> ${note.hourOfEvent}</span>
+          <span><span class="property-title">date of event</span> ${note.dateOfEvent}</span>
+          <div id="equipment">
+          <span class="property-title">needed equipment</span>
+            <div id="equipment-list"></div>
+          </div>
         `;
 
         var eqList: HTMLDivElement = document.getElementById(

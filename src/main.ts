@@ -18,7 +18,7 @@ var note3: Note = new SportNote(
   "2.2.24",
   "basketball game",
   "basket ball game at noon today",
-  "basket",
+  "https://cdn.dribbble.com/users/5214489/screenshots/14933384/media/5ed47a2c8be942c2a846d29aebb15913.jpg",
   "sport room",
   "tommarow",
   "3 pm",

@@ -3,14 +3,20 @@ function openNoteDisplay(noteId) {
     if (index > -1) {
         // if found
         var modal = document.getElementById("modal-display-note");
+        var displayedNote = document.getElementById("display-note");
         var titleSpan = document.getElementById("title");
         var contentBox = document.getElementById("content");
         var creationDateSpan = document.getElementById("creation-date-display");
-        var imageDisplay = document.getElementById("image");
+        var imageDisplay_1 = document.getElementById("image");
+        displayedNote.className = "modal ".concat(notes[index].constructor.name);
         // DISPLAY BASIC SHARED NOTE PROPERTIES
         creationDateSpan.innerHTML = notes[index].creationDate;
         titleSpan.innerHTML = notes[index].title;
-        imageDisplay.src = notes[index].imageSrc; // not working for now
+        imageDisplay_1.style.display = "block";
+        imageDisplay_1.src = notes[index].imageSrc; // not working for now
+        imageDisplay_1.onerror = function () {
+            imageDisplay_1.style.display = "none";
+        };
         var additinalDataDiv = document.getElementById("additional-data-display");
         contentBox.innerHTML = ""; // clear
         additinalDataDiv.innerHTML = ""; // clear
@@ -19,7 +25,7 @@ function openNoteDisplay(noteId) {
             case "MeetingNote":
                 note = notes[index];
                 contentBox.innerHTML = note.content;
-                additinalDataDiv.innerHTML += "\n          <span>place: ".concat(note.place, "</span>\n          <span>time: ").concat(note.meetingHour, "</span>\n        ");
+                additinalDataDiv.innerHTML += "\n          <span><span class=\"property-title\">place</span> ".concat(note.place, "</span>\n          <span><span class=\"property-title\">time</span> ").concat(note.meetingHour, "</span>\n        ");
                 break;
             case "toDoNote":
                 note = notes[index];
@@ -28,12 +34,12 @@ function openNoteDisplay(noteId) {
                     // for now - doesn't save checked status
                     contentBox.innerHTML += "<input type=\"checkbox\">".concat(line, "<br>");
                 });
-                contentBox.innerHTML += "<span>Due to: ".concat(note.dueDate, "</span>");
+                additinalDataDiv.innerHTML += "<span><span class=\"property-title\">Due to</span> ".concat(note.dueDate, "</span>");
                 break;
             case "SportNote":
                 note = notes[index];
                 contentBox.innerHTML = note.content;
-                additinalDataDiv.innerHTML += "\n          <span>place: ".concat(note.place, "</span>\n          <span>time: ").concat(note.hourOfEvent, "</span>\n          <span>date of event: ").concat(note.dateOfEvent, "</span>\n          <span> needed equipment: </span>\n          <div id=\"equipment-list\"></div>\n        ");
+                additinalDataDiv.innerHTML += "\n          <span><span class=\"property-title\">place</span>".concat(note.place, "</span>\n          <span><span class=\"property-title\">time</span> ").concat(note.hourOfEvent, "</span>\n          <span><span class=\"property-title\">date of event</span> ").concat(note.dateOfEvent, "</span>\n          <div id=\"equipment\">\n          <span class=\"property-title\">needed equipment</span>\n            <div id=\"equipment-list\"></div>\n          </div>\n        ");
                 var eqList = document.getElementById("equipment-list");
                 eqList.innerHTML = ""; // clear
                 if (note.neededEquipment.length > 0) {
