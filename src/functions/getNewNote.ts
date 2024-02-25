@@ -2,7 +2,7 @@ function getNewNote(): boolean {
   let form = document.forms["form"];
   let title = form.title.value;
   let content = form.content.value;
-  let image = "";
+  let image = form.image.value;
   let today = new Date(Date.now()).toLocaleDateString("en-IN");
   let type = form.type.value;
   // alert(getSource());

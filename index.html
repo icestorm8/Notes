@@ -78,7 +78,7 @@
               placeholder="your text here (notice, incase you are creating a todo note, every line will be a displayed as checkbox)"
               required
             ></textarea>
-            <input name="image"  id="choose-file" type="file" accept="image/*" />
+            <input name="image"  id="choose-file" type="text" onchange="previewImg(this)" />
             <div id="img-preview"></div>
 
             <div class="radio-btns">

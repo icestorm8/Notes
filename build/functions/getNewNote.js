@@ -2,7 +2,7 @@ function getNewNote() {
     var form = document.forms["form"];
     var title = form.title.value;
     var content = form.content.value;
-    var image = "";
+    var image = form.image.value;
     var today = new Date(Date.now()).toLocaleDateString("en-IN");
     var type = form.type.value;
     // alert(getSource());

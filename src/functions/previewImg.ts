@@ -5,17 +5,8 @@ const imgPreview: HTMLDivElement = document.getElementById(
   "img-preview"
 ) as HTMLDivElement;
 
-function getImgData(): void {
-  const files = chooseFile.files[0];
-  if (files) {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(files);
-    fileReader.addEventListener("load", function () {
-      imgPreview.style.display = "block";
-      imgPreview.innerHTML = '<img width="300" src="' + this.result + '" />';
-    });
-  }
+
+function previewImg(input: HTMLInputElement) {
+  input.style.display = "block";
+  imgPreview.innerHTML = `<img width="300" src="${input.value}" />`;
 }
-chooseFile.addEventListener("change", function () {
-  getImgData();
-});

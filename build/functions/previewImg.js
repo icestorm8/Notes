@@ -1,16 +1,6 @@
 var chooseFile = document.getElementById("choose-file");
 var imgPreview = document.getElementById("img-preview");
-function getImgData() {
-    var files = chooseFile.files[0];
-    if (files) {
-        var fileReader = new FileReader();
-        fileReader.readAsDataURL(files);
-        fileReader.addEventListener("load", function () {
-            imgPreview.style.display = "block";
-            imgPreview.innerHTML = '<img width="300" src="' + this.result + '" />';
-        });
-    }
+function previewImg(input) {
+    input.style.display = "block";
+    imgPreview.innerHTML = "<img width=\"300\" src=\"".concat(input.value, "\" />");
 }
-chooseFile.addEventListener("change", function () {
-    getImgData();
-});

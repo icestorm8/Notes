@@ -12,6 +12,7 @@ function openNoteDisplay(noteId) {
         // DISPLAY BASIC SHARED NOTE PROPERTIES
         creationDateSpan.innerHTML = notes[index].creationDate;
         titleSpan.innerHTML = notes[index].title;
+        // hide broken image icon if source is empty or bad
         imageDisplay_1.style.display = "block";
         imageDisplay_1.src = notes[index].imageSrc; // not working for now
         imageDisplay_1.onerror = function () {
