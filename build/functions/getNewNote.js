@@ -3,7 +3,7 @@ function getNewNote() {
     var title = form.title.value;
     var content = form.content.value;
     var image = "";
-    var today = new Date(Date.now()).toString();
+    var today = new Date(Date.now()).toLocaleDateString("en-IN");
     var type = form.type.value;
     // alert(getSource());
     // alert(getImgData());
@@ -23,8 +23,8 @@ function getNewNote() {
             place = form.place.value == "" ? "unknown" : form.place.value;
             date = form.eventDate.value == "" ? "unknown" : form.eventDate.value;
             time = form.time.value == "" ? "unknown" : form.time.value; // string?
-            equipment = // not working yet
-                createListFromTextArea(form.equipment.value).length == 0
+            equipment =
+                form.equipment.value == ""
                     ? []
                     : createListFromTextArea(form.equipment.value);
             newNote = new SportNote(today, title, content, image, place, date, time, equipment);
@@ -46,12 +46,4 @@ function getNewNote() {
     document.getElementById("additional-data").innerHTML = "";
     alert("note added");
     return true;
-}
-function createListFromTextArea(textAreaValue) {
-    var arr = [];
-    var saveData = function () {
-        arr = textAreaValue.split(/\r?\n/);
-    };
-    console.log(arr);
-    return arr;
 }

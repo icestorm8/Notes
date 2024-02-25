@@ -13,6 +13,8 @@
     <script src="/build/models/MeetingNote.js" defer></script>
     <script src="/build/functions/displayType.js" defer></script>
     <script src="/build/functions/previewImg.js" defer></script>
+   <script src="build/functions/openNoteDisplay.js" defer></script>
+    <script src="build/functions/listFromTextArea.js" defer></script>
     <script src="/build/functions/getSource.js" defer></script>
     <script src="/build/functions/getNewNote.js" defer></script>
     <script src="/build/functions/editMode.js" defer></script>
@@ -40,14 +42,16 @@
       </button>
       <button
         id="addNote"
-        onclick="function e(){getElementById('modal').style.display = 'block'};e()"
+        onclick="function e(){
+          getElementById('creation-date').innerText = new Date(Date.now()).toLocaleDateString('en-IN');
+          getElementById('modal-create-note').style.display = 'block'};e()"
         value="on"
       >
         <i class="fa-solid fa-plus"></i>
       </button>
     </div>
 
-    <div id="modal" class="base-modal">
+    <div id="modal-create-note" class="base-modal">
       <div id="create-note" class="modal">
         <div class="modal-head">
           <div class="modal-title">
@@ -55,7 +59,7 @@
           </div>
           <i
             class="fa-solid fa-xmark"
-            onclick="function x(){document.getElementById('modal').style.display='none';};x()"
+            onclick="function x(){document.getElementById('modal-create-note').style.display='none';};x()"
           ></i>
         </div>
         <div class="modal-body">
@@ -115,11 +119,33 @@
               will be a meeting by default, let's say -->
             </div>
             <button
-              onclick="function x(){document.getElementById('modal').style.display='none';}; getNewNote()?  x(): ()=>{return false;}"
+              onclick="function x(){document.getElementById('modal-create-note').style.display='none';}; getNewNote()?  x(): ()=>{return false;}"
             >
               Add Note
             </button>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-display-note" class="base-modal">
+      <div id="display-note" class="modal">
+        <div class="modal-head">
+          <div class="modal-title">
+            <span id="title"></span>
+          </div>
+          <span id="creation-date-display"></span>
+          <!-- closing modal -->
+          <i
+            class="fa-solid fa-xmark"
+            onclick="function x(){document.getElementById('modal-display-note').style.display='none';};x()"
+          ></i>
+        </div>
+        <div class="modal-body">
+          <!-- note will be displayed here -->
+          <div id="content"></div>
+          <img id="image" src=""></img>
+          <div id="additional-data-display"></div>
         </div>
       </div>
     </div>

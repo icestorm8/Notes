@@ -3,7 +3,7 @@ function getNewNote(): boolean {
   let title = form.title.value;
   let content = form.content.value;
   let image = "";
-  let today = new Date(Date.now()).toString();
+  let today = new Date(Date.now()).toLocaleDateString("en-IN");
   let type = form.type.value;
   // alert(getSource());
   // alert(getImgData());
@@ -26,8 +26,8 @@ function getNewNote(): boolean {
       place = form.place.value == "" ? "unknown" : form.place.value;
       date = form.eventDate.value == "" ? "unknown" : form.eventDate.value;
       time = form.time.value == "" ? "unknown" : form.time.value; // string?
-      equipment = // not working yet
-        createListFromTextArea(form.equipment.value).length == 0
+      equipment =
+        form.equipment.value == ""
           ? []
           : createListFromTextArea(form.equipment.value);
       newNote = new SportNote(
@@ -59,13 +59,4 @@ function getNewNote(): boolean {
   document.getElementById("additional-data").innerHTML = "";
   alert("note added");
   return true;
-}
-
-function createListFromTextArea(textAreaValue: string) {
-  var arr: string[] = [];
-  const saveData = function () {
-    arr = textAreaValue.split(/\r?\n/);
-  };
-  console.log(arr);
-  return arr;
 }

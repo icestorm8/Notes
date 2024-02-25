@@ -14,9 +14,11 @@ function displayNotes(editMode: boolean): void {
     notesDiv.innerHTML += "<h3>0 notes where found...</h3>";
     return;
   }
-    notes.map((note, index) => {
-      notesDiv.innerHTML += `
-        <div class="box-note ${note.constructor.name}" >
+  notes.map((note, index) => {
+    notesDiv.innerHTML += `
+        <div onclick="openNoteDisplay(${note.id})" class="box-note ${
+      note.constructor.name
+    }" >
           <div class="note">
 
           <!-- head -->
@@ -24,7 +26,11 @@ function displayNotes(editMode: boolean): void {
               <div class="note-title">
                 <span>${note.title}</span>
               </div>
-              <i style="display:${editMode?'block':'none'}" onclick="(() => deleteById(${note.id}))()" class="fa-solid fa-xmark"></i>
+              <i style="display:${
+                editMode ? "block" : "none"
+              }" onclick="(() => deleteById(${
+      note.id
+    }))()" class="fa-solid fa-xmark"></i>
             </div>
 
             <!-- body -->
@@ -37,11 +43,11 @@ function displayNotes(editMode: boolean): void {
         </div>
       `;
 
-      setTimeout(function () {
-        document.getElementById(`${index}`).onclick = function () {
-          note.noteAlert();
-        };
-      }, 200);
-      console.log(note);
-    });
+    setTimeout(function () {
+      document.getElementById(`${index}`).onclick = function () {
+        note.noteAlert();
+      };
+    }, 200);
+    console.log(note);
+  });
 }
