@@ -5,8 +5,6 @@ function getNewNote() {
     var image = form.image.value;
     var today = new Date(Date.now()).toLocaleDateString("en-IN");
     var type = form.type.value;
-    // alert(getSource());
-    // alert(getImgData());
     if (title == "" || content == "") {
         alert("fill all with valid inputs");
         return false;
@@ -41,9 +39,14 @@ function getNewNote() {
     }
     notes.push(newNote);
     console.log(notes);
-    displayNotes(false);
-    // form.reset(); // clear form for next use - causes anable to focous on the regular elements
-    document.getElementById("additional-data").innerHTML = "";
     alert("note added");
+    // change value to off (if it was on)
+    var editBtn = document.getElementById("editBtn");
+    if (editBtn.value == "on") {
+        toggleEditMode();
+    }
+    else {
+        displayNotes(false);
+    }
     return true;
 }

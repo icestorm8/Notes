@@ -36,18 +36,11 @@ function displayNotes(editMode: boolean): void {
             <!-- body -->
             <div class="note-body">
               <span>${note.content}</span>
-              <button id="${index}"> alert details </button>
+             
             </div>
             
           </div>
         </div>
       `;
-
-    setTimeout(function () {
-      document.getElementById(`${index}`).onclick = function () {
-        note.noteAlert();
-      };
-    }, 200);
-    console.log(note);
   });
 }

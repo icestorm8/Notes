@@ -11,6 +11,7 @@
     <script src="/build/models/SportNote.js" defer></script>
     <script src="/build/models/toDoNote.js" defer></script>
     <script src="/build/models/MeetingNote.js" defer></script>
+    <script src="build/functions/resetForm.js" defer></script>
     <script src="/build/functions/displayType.js" defer></script>
     <script src="/build/functions/previewImg.js" defer></script>
    <script src="build/functions/openNoteDisplay.js" defer></script>
@@ -37,7 +38,7 @@
       <div id="notes" class="list-box"></div>
     </main>
     <div class="edit-notes">
-      <button id="editBtn" onclick="toggleEditMode(this)" value="on">
+      <button id="editBtn" onclick="toggleEditMode()" value="off">
         <i class="fa-regular fa-pen-to-square"></i>
       </button>
       <button
@@ -59,7 +60,7 @@
           </div>
           <i
             class="fa-solid fa-xmark"
-            onclick="function x(){document.getElementById('modal-create-note').style.display='none';};x()"
+            onclick="resetForm()"
           ></i>
         </div>
         <div class="modal-body">
@@ -70,16 +71,16 @@
               type="text"
               minlength="1"
               placeholder="your title here"
-              required
+              
             />
             <textarea
               name="content"
               minlength="1"
               placeholder="your text here (notice, incase you are creating a todo note, every line will be a displayed as checkbox)"
-              required
+             
             ></textarea>
-            <input name="image"  id="choose-file" type="text" onchange="previewImg(this)" />
-            <div id="img-preview"></div>
+            <input name="image" placeholder="you can add an image url if you want, but its not mandatory" id="choose-file" type="text" onchange="previewImg(this)" />
+            <div id="img-preview" name="imgPreview"></div>
 
             <div class="radio-btns">
               <label><b>Note type:</b></label>
@@ -90,7 +91,7 @@
                 value="sport"
                 class="btn-sport"
                 onclick="displayType(this)"
-                required
+               
               />
               <label for="sport">sport and lesiure</label>
               <input
@@ -118,8 +119,10 @@
               <!-- will contain data based on type chosen
               will be a meeting by default, let's say -->
             </div>
+            <!-- document.getElementById('modal-create-note').style.display='none'; -->
+            <!-- function x(){}; getNewNote()?  x(): ()=>{return false;} -->
             <button
-              onclick="function x(){document.getElementById('modal-create-note').style.display='none';}; getNewNote()?  x(): ()=>{return false;}"
+              onclick="getNewNote()? resetForm(): ()=>{return false;}"
             >
               Add Note
             </button>

@@ -5,8 +5,6 @@ function getNewNote(): boolean {
   let image = form.image.value;
   let today = new Date(Date.now()).toLocaleDateString("en-IN");
   let type = form.type.value;
-  // alert(getSource());
-  // alert(getImgData());
 
   if (title == "" || content == "") {
     alert("fill all with valid inputs");
@@ -54,9 +52,17 @@ function getNewNote(): boolean {
 
   notes.push(newNote);
   console.log(notes);
-  displayNotes(false);
-  // form.reset(); // clear form for next use - causes anable to focous on the regular elements
-  document.getElementById("additional-data").innerHTML = "";
   alert("note added");
+
+  // get out of edit mode when publishing new note or trying to create one
+  var editBtn: HTMLButtonElement = document.getElementById(
+    "editBtn"
+  ) as HTMLButtonElement;
+  if (editBtn.value == "on") {
+    toggleEditMode();
+  } else {
+    displayNotes(false);
+  }
+
   return true;
 }

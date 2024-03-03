@@ -1,10 +1,11 @@
-function toggleEditMode(element) {
-    if (element.value == "on") {
-        element.value = "off";
-        displayNotes(true);
+function toggleEditMode() {
+    var editBtn = document.getElementById("editBtn");
+    if (editBtn.value == "on") {
+        editBtn.value = "off";
+        displayNotes(false);
     }
     else {
-        element.value = "on";
-        displayNotes(false);
+        editBtn.value = "on";
+        displayNotes(true);
     }
 }

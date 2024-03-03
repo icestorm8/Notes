@@ -1,7 +1,6 @@
-function deleteById(id: number) {
+function deleteById(id: number): void {
   const objWithIdIndex = notes.findIndex((note) => note.id === id);
   if (objWithIdIndex > -1) {
-    
     notes.splice(objWithIdIndex, 1);
   }
 

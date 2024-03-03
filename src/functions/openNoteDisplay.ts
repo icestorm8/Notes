@@ -1,4 +1,4 @@
-function openNoteDisplay(noteId: number) {
+function openNoteDisplay(noteId: number): void {
   const index = notes.findIndex((note) => note.id === noteId);
   if (index > -1) {
     // if found
