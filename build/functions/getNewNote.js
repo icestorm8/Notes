@@ -40,7 +40,7 @@ function getNewNote() {
     notes.push(newNote);
     console.log(notes);
     alert("note added");
-    // change value to off (if it was on)
+    // get out of edit mode when publishing new note or trying to create one
     var editBtn = document.getElementById("editBtn");
     if (editBtn.value == "on") {
         toggleEditMode();

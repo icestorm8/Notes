@@ -1,49 +1,41 @@
-פרויקט TYPESCRIPT הנחייה
-קראו היטב ובנו את הפרויקט לפי ה אפיון.
-הפרויקט מבוסס רק על החומר שלמדנו ותרגלנו בכיתה.
-ניתן להגיש בתיבת המטלה גם את שני התרגילים הקודמים )אתר רכבים יד 2 + מוצרים ( כאשר
-הגשה של התרגילים יחד עם הפרויקט תזכה ב10% בציון הסופי.
-ניתן להיעזר ב Gpt Chat לcss בלבד.
-יש להקפיד על כללי הכתיבה שבהם השתמשנו בדגש על ארכיטקטורה – חובה לחלק את הקבצים
-לקבצים נפרדים ולתיקיות לפי הנלמד בשיעור.
-מתוך הבנה שיש פרויקטים נוספים ושזו תקופה עמוסה, ניתן להגיש את המטלה בזוגות.
-תיבת הגשה תיפתח במודל וניתן להגיש עד ה,10.3 מומלץ להגיש כמה שיותר מהר לבקשתכם
-המטלה הובאה אליכם לפני הזמן. – במידה ויש בעיה במועד ההגשה מכל סיבה ניתן לפנות אלי.
-לאחר הכנת הפרויקט תהיה הגנה על הפרויקט כך שהציון יהיה לפי הגשה + הגנה.
-הפרויקט יבדק לפי :
-• האם הפרויקט עובד
-• תקלות בConsole
-• ארכיטקטורה
-• הצמדות לאפיון
-• שמות משתנים עם הקשר
-• קבצים מחולקים
-• קוד ברור וקריא – להיות חסכוניים ויעילים בכתיבה
-• עיצוב ונוחות משתמש
-פרויקט TYPESCRIPT פתקים:
-צרו דף אינטרנט לניהול משימות אישיות לפי הפירוט הבא:
-מחלקה ראשית )אבסטרקטית( - פתק:
-id, תאריך כתיבת הפתק, כותרת, טקסט, כתובת של תמונה
-פונקציה אבסטרקטית – התראה
-ממשקים: )interfaces):
-.1 משימות לביצוע:
-משתנים: תאריך אחרון לביצוע
-פונקציה: התראה )alert )על מתי הפתק נוצר ומה התאריך האחרון לביצוע.
-.2 פגישות :
-משתנים: מיקום, שעה
-פונקציה: התראה )alert )המציגה את תאריך ההזמנה, כותרת, טקסט, מיקום ושעה של הפגישה.
-.3 ספורט ופנאי:
-משתנים: מיקום, תאריך לאימון/אירוע, שעה וציוד נדרש
-פונקציה: התראה )alert )המציגה את האימון/אירוע.
-פונקציה :
-מחיקת פתק לפי ID.
- :HTML
-בחלק העליון תוצג כותרת תמונה ומתג ל"מצב עריכה" של האתר ואחריהם הפתקים - ניתן להציג את
-הפתקים לפי מחלקות או ביחד. – ניתן לחרוג מהאפיון בעיצוב על מנת שהאתר יהיה ברמה הגבוהה
-ביותר בעיניכם.
-במידה ומופעל "מצב עריכה" יש להציג X למחיקה בכל פתק ולהציג את הdiv של הוספת מוצר
-בתחתית הדף כדי להוסיף פתקים נוספים. - < במידה ולא הופעל מצב עריכה יש להציג כפתור
-שמפעיל את ההתראה בכל פתק.
-בונוס:1
-עיצוב מרשים ונוחות למשתמש
-בונוס:2
-במקום להציג בAlert את פונקציות הclass הציגו את הפתק הנבחר בHTML. 
+# Notes TS app
+
+### view your notes on the main page
+
+![alt text](readmePictures/image-1.png)
+
+##
+### remove notes by clicking the edit button (edit mode)
+
+![alt text](readmePictures/image-2.png)
+##
+### add new note by clicking the plus button
+
+![alt text](readmePictures/image-3.png)
+
+### when adding notes :
+
+- you have to choose a type
+- you have to fill in the title and content
+- image is not mandatory
+- extra data will be shown only after choosing a type
+
+> **notice!** it is not mendatory to fill in the extra details and a default value will be saved if you wouldn't fill it
+
+> **if you entered something that is not an image src at the image url input box the image won't be saved (you'll get an alert and url line will be cleared)**
+
+> in case of having a note with a broken image, the broken image symbol will not be visible (notice that the default list of notes includes broken src's)
+
+##
+
+### view your note by simply clicking on it
+
+![alt text](readmePictures/image-4.png)
+
+> for each type of note there's a different format:
+#### to do note:
+![alt text](readmePictures/image-5.png)
+#### sport note:
+![alt text](readmePictures/image-6.png)
+#### meeting note:
+![alt text](readmePictures/image-7.png)
